@@ -1,4 +1,6 @@
 <?php
+echo 'Hello World'
+
 header("Content-Type: application/json; charset=UTF-8");
 
 include_once '../config/dbclass.php';
@@ -45,10 +47,5 @@ if($count > 0){
     echo json_encode($products);
 }
 
-else {
 
-    echo json_encode(
-        array("body" => array(), "count" => 0);
-    );
-}
 ?>
