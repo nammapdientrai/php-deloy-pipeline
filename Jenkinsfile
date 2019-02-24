@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage ('Check container JDK') {
             steps {
-                if [$(docker ps -q -f name=java-jdk)]; then
+                if [!$(docker ps -q -f name=java-jdk)]; then
                     if [$(docker ps -aq -f status=exited -f name=java-jdk)]; then
                         sh 'docker rm java-jdk'
                     fi
