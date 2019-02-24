@@ -1,26 +1,38 @@
 <?php
-class DBClass {
+    class DBConnect {
+        static $con = null;
 
-    private $host = "localhost";
-    private $username = "root";
-    private $password = "123456789";
-    private $database = "test";
+        static function connectedDB() {
+            self::$con = mysqli_connect("localhost:3306","root","","test");
 
-    public $connection;
-
-    // get the database connection
-    public function getConnection(){
-
-        $this->connection = null;
-
-        try{
-            $this->connection = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->database, $this->username, $this->password);
-            $this->connection->exec("set names utf8");
-        }catch(PDOException $exception){
-            echo "Error: " . $exception->getMessage();
+            // Check connection
+            if (mysqli_connect_errno()){
+                return false;
+            } else{
+                return true;
+            }
         }
-
-        return $this->connection;
     }
-}
+
+    /*$con = mysqli_connect("localhost:3306","root","","test");
+
+    // Check connection
+    if (mysqli_connect_errno()){
+        echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    } else{
+        echo "Success to connect to MySQL"."<br>";
+
+        $sql = "SELECT id, name FROM products";
+        $result = $con->query($sql);
+
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while($row = $result->fetch_assoc()) {
+                echo "id: " . $row["id"]. " - Name: " . $row["name"]. "<br>";
+            }
+        } else {
+            echo "0 results";
+        }
+        $con->close();
+    }*/
 ?>
