@@ -2,9 +2,15 @@ pipeline {
     agent any
 
     stages {
-        stage ('1') {
+        stage ('Check container JDK') {
             steps {
-                echo '1 ....'
+                if [ ! "$(docker ps -q -f name=java-jdk)" ]; then
+                    if [ "$(docker ps -aq -f status=exited -f name=java-jdk)" ]; then
+                        docker rm java-jdk
+                    fi
+                    
+                    docker run -d --name java-jdk openjdk;
+                fi
             }
         }
 
