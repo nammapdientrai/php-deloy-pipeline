@@ -4,12 +4,12 @@ pipeline {
     stages {
         stage ('Check container JDK') {
             steps {
-                if [ ! "$(docker ps -q -f name=java-jdk)" ]; then
-                    if [ "$(docker ps -aq -f status=exited -f name=java-jdk)" ]; then
-                        docker rm java-jdk
+                if !"$(docker ps -q -f name=java-jdk)"; then
+                    if "$(docker ps -aq -f status=exited -f name=java-jdk)"; then
+                        sh 'docker rm java-jdk'
                     fi
                     
-                    docker run -d --name java-jdk openjdk;
+                    sh 'docker run -d -v /opt/tomcat/.jenkins/workspace/jog-test-pipeline-java/demojenkinsTest/target:/home -i openjdk';
                 fi
             }
         }
