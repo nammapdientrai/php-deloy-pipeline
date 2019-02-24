@@ -1,7 +1,5 @@
 <?php
-echo 'Hello World'
-
-header("Content-Type: application/json; charset=UTF-8");
+//header("Content-Type: application/json; charset=UTF-8");
 
 include_once '../config/dbclass.php';
 include_once '../PDO/product.php';
@@ -46,6 +44,4 @@ if($count > 0){
 
     echo json_encode($products);
 }
-
-
 ?>
