@@ -20,7 +20,6 @@
                 } else {
                     echo "0 results";
                 }
-
                 DBConnect::$con->close();
             } else {
                 echo 'Fail connect';
