@@ -3,7 +3,7 @@
         static $con = null;
 
         static function connectedDB() {
-            self::$con = mysqli_connect("127.0.0.1:3306","root","123456789","test");
+            self::$con = mysqli_connect("172.17.0.3:3306","root","123456789","test");
 
             // Check connection
             if (mysqli_connect_errno()){
@@ -13,6 +13,9 @@
             }
         }
     }
+
+    $db = new DBConnect();
+    echo $db->connectedDB();
 
     /*$con = mysqli_connect("localhost:3306","root","","test");
 
