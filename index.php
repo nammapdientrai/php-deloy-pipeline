@@ -92,7 +92,7 @@
 						<div class="home-content">
 							<!-- TABLE PRODUCT : START -->
 							<?php
-    							include 'view/list-product.php';
+								include 'view/list-product.php';
 							?>
 							<!-- TABLE PRODUCT : END -->
 						</div>
