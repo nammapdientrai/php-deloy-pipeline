@@ -7,11 +7,12 @@
     $size = sizeof($list);
 ?>
 
-<div style="margin: auto auto; width: 100%;">
+<div style="margin: auto auto; width: 100%; margin-top: 100px;">
     <table class="table text-center" style="width:100%; color: white;">
         <tr style="font-size: 18px;">
-            <th class="text-center">ID</th>
+            <th class="text-center">STT</th>
             <th class="text-center">NAME</th>
+            <th class="text-center">ID</th>
             <th class="text-center">CATEGORY ID</th>
             <th class="text-center">DESCRIPTION</th>
             <th class="text-center">PRICE</th>
@@ -20,8 +21,9 @@
             for ($x = 0; $x < $size; $x++) {
         ?>
         <tr>
-            <td><?php echo $list[$x]->get_id() ?></td>
+            <td><?php echo ($x + 1) ?></td>
             <td><?php echo $list[$x]->get_name() ?></td>
+            <td><?php echo $list[$x]->get_id() ?></td>
             <td><?php echo $list[$x]->get_category_id() ?></td>
             <td><?php echo $list[$x]->get_description() ?></td>
             <td><?php echo $list[$x]->get_price() ?></td>
