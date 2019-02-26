@@ -20,6 +20,12 @@ pipeline {
             }
         }
 
+        stage ('Move code to volume container') {
+            steps {
+                sh 'docker run -d -v /opt/tomcat/.jenkins/workspace/php-deloy-pipeline/:/var/www/html/ -i php-php5'     
+            }
+        }
+
         stage ('Test') {
             steps {
                 echo 'Test .....'        
