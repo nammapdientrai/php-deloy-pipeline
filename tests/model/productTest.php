@@ -3,7 +3,7 @@
 namespace Tests;
 
 use PHPUnit\Framework\TestCase;
-include 'controller/productController.php';
+include '/productController.php';
 
 class StupidTest extends TestCase
 {
@@ -19,8 +19,7 @@ class StupidTest extends TestCase
 
     public function testMysql() {
      	$db = new ProductController();
-	$list = $db->getAllProduct();
-
-	$this->assertTrue( ( $list[0]->get_id() == '1' ) );
+		$list = $db->getAllProduct();
+		$this->assertTrue( ( $list[0]->get_id() == '1' ) );
     }
 }
