@@ -22,7 +22,9 @@ pipeline {
 
         stage ('Move code to volume container') {
             steps {
-                sh 'docker run -d -v /opt/tomcat/.jenkins/workspace/php-deloy-pipeline/:/var/www/html/ -i php-php5'     
+                sh 'docker container stop php-php5'
+                sh 'docker container rm php-php5'
+                sh 'docker run -d --name php-php5 -v /opt/tomcat/.jenkins/workspace/php-deloy-pipeline/:/var/www/html/ -i nimmis/apache-php5'     
             }
         }
 
