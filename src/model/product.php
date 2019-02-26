@@ -18,6 +18,16 @@ class Product {
         $this->category_id = $row["category_id"];
     }
 
+
+
+    /* CALCULATOR : START */
+    public function calcuTotal() {
+        return ($this->price * 5);
+    }
+    /* CALCULATOR : END */
+
+
+
     /* GET - SET ID : START */
     public function get_id() {		
         return $this->id;		

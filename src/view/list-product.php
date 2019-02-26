@@ -16,6 +16,7 @@
             <th class="text-center">CATEGORY ID</th>
             <th class="text-center">DESCRIPTION</th>
             <th class="text-center">PRICE</th>
+            <th class="text-center">TOTAL</th>
         </tr>
         <?php
             for ($x = 0; $x < $size; $x++) {
@@ -27,6 +28,7 @@
             <td><?php echo $list[$x]->get_category_id() ?></td>
             <td><?php echo $list[$x]->get_description() ?></td>
             <td><?php echo $list[$x]->get_price() ?></td>
+            <td><?php echo $list[$x]->calcuTotal() ?></td>
         </tr>
         <?php
             }
