@@ -24,7 +24,8 @@ pipeline {
             steps {
                 sh 'docker container stop php-php5'
                 sh 'docker container rm php-php5'
-                sh 'docker run -d --name php-php5 -v /opt/tomcat/.jenkins/workspace/php-deloy-pipeline/:/var/www/html/ -i nimmis/apache-php5'     
+                sh 'docker run -d --name php-php5 -v /opt/tomcat/.jenkins/workspace/php-deloy-pipeline/:/var/www/html/ -i nimmis/apache-php5'
+                sh 'docker exec php-php5 chmod 777 /var/www/html/. -R'     
             }
         }
 
