@@ -35,6 +35,12 @@ pipeline {
             }
         }
 
+        stage ('Feed back - Monitoring - Operate') {
+            steps {
+                echo 'Feed back - Monitoring - Operate .....'
+            }
+        }
+
         stage ('Succes') {
             steps {
                 echo 'Success .....'
