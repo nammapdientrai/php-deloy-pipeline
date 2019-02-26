@@ -2,21 +2,39 @@ pipeline {
     agent any
 
     stages {
-        stage ('1') {
+        stage ('Setup container MySQL') {
             steps {
-                echo '1 ....'
+                echo 'Setup container MySQL .....'        
             }
         }
 
-        stage ('2') {
+        stage ('Setup container Apache') {
             steps {
-                echo '2 ....'
+                echo 'Setup container Apache .....'        
             }
         }
 
-        stage ('3') {
+        stage ('Setup container PHP') {
             steps {
-                echo '3 ....'
+                echo 'Setup container PHP .....'        
+            }
+        }
+
+        stage ('Test') {
+            steps {
+                echo 'Test .....'        
+            }
+        }
+
+        stage ('Deloy') {
+            steps {
+                echo 'Deloy .....'
+            }
+        }
+
+        stage ('Succes') {
+            steps {
+                echo 'Success .....'
             }
         }
     }
