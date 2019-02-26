@@ -20,24 +20,18 @@ pipeline {
             }
         }
 
-        stage ('Move code to volume container') {
-            steps {
-                sh 'docker container stop php-php5'
-                sh 'docker container rm php-php5'
-                sh 'docker run -d --name php-php5 -v /opt/tomcat/.jenkins/workspace/php-deloy-pipeline/:/var/www/html/ -i nimmis/apache-php5'
-                sh 'docker exec php-php5 chmod 777 /var/www/html/. -R'     
-            }
-        }
-
         stage ('Test') {
             steps {
-                echo 'Test .....'        
+                sh 'cd /opt/tomcat/.jenkins/workspace/php-deloy-pipeline | ./vendor/bin/phpunit'       
             }
         }
 
         stage ('Deloy') {
             steps {
-                echo 'Deloy .....'
+                sh 'docker container stop php-php5'
+                sh 'docker container rm php-php5'
+                sh 'docker run -d --name php-php5 -v /opt/tomcat/.jenkins/workspace/php-deloy-pipeline/:/var/www/html/ -i nimmis/apache-php5'
+                sh 'docker exec php-php5 chmod 777 /var/www/html/. -R'     
             }
         }
 
